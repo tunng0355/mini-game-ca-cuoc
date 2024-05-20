@@ -1,0 +1,393 @@
+@import url('https://site-assets.fontawesome.com/releases/v6.4.2/css/all.css');
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Play&display=swap');
+
+body {
+  margin: 0;
+  font-family: Play;
+}
+
+
+#app {
+  height: 100vh;
+  width: 29rem;
+  background-color: #fff;
+}
+
+.header {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: #eee;
+}
+
+.navbar {
+  width: 100%;
+  position: relative;
+  height: 7.6vh;
+
+}
+
+.top-nav {
+  background-color: #fff;
+  transform: rotate(23deg);
+  width: 7.6vh;
+  height: 9rem;
+  z-index: 30;
+  position: absolute;
+  top: -18px;
+  left: 29px;
+}
+
+.center-nav {
+  background-color: #56a5b4;
+  width: 100%;
+  height: 7.6vh;
+  position: relative;
+  top: 0;
+  z-index: 20;
+
+}
+
+.content {
+  position: relative;
+  background: #fff;
+  z-index: 90;
+  top: 0;
+  height: 92.4vh;
+  width: 100%;
+}
+
+.top-sidenav {
+  position: relative;
+  display: flex;
+
+}
+
+.user-header {
+  position: absolute;
+  top: 16px;
+  left: 53px;
+  color: #333;
+  z-index: 30;
+  font-size: 30px;
+}
+
+.end-nav {
+  position: absolute;
+  height: 7.6vh;
+  top: 0;
+  right: 15px;
+  display: flex;
+  z-index: 30;
+  align-items: center;
+}
+
+.btn-1 {
+  background: #fff;
+  border: 2px solid #fff;
+  color: #333333;
+  height: 2.4rem;
+  padding: 2px 14px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.main {
+  padding: 20px;
+}
+
+.title-home {
+  font-size: 20px;
+  font-weight: 600;
+  position: relative;
+  padding-left: 12px;
+
+}
+
+.title-home::after {
+  content: "";
+  position: absolute;
+  height: 25px;
+  width: 6px;
+  background-color: #333;
+  left: 0px;
+}
+
+.mt-x {
+  margin-top: 1rem;
+}
+
+.mt-x2 {
+  margin-top: 8px;
+}
+
+.card {
+  height: 12rem;
+  width: 100%;
+  background: #56a5b4;
+  border-radius: 10px;
+  display: flex;
+}
+
+.card2 {
+  height: 12rem;
+  width: 100%;
+  background: #f3f3f3;
+  border-radius: 10px;
+  display: flex;
+}
+
+.box-game {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 18px 20px;
+
+}
+
+.content-game2 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.content-game {
+  display: flex;
+  justify-content: space-between;
+  height: 4rem;
+}
+
+.team-name2 {
+  font-size: 20px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.team-name {
+  font-size: 20px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.badges-x {
+  background: #fff;
+  padding: 3px 7px;
+  border-radius: 5px;
+  font-size: 15px;
+}
+
+.content-game2 {
+  margin-top: 7px;
+  display: flex;
+  color: white;
+  flex-direction: column;
+}
+
+.content-game2 p {
+  margin-top: 5px;
+  margin-bottom: 0;
+}
+
+.layouts-cuoc {
+  display: flex;
+
+}
+
+.btn-2 {
+  background: #56a5b4;
+  border: 2px solid #fff;
+  height: 2.4rem;
+  padding: 2px 7px;
+  border-radius: 0;
+  font-size: 14px;
+  color: white;
+  font-weight: 600;
+  width: 100%;
+}
+
+.btn-3 {
+  background: #fff;
+  border: 2px solid #fff;
+  color: #333333;
+  height: 2.4rem;
+  padding: 2px 14px;
+  border-radius: 0;
+  font-size: 14px;
+  font-weight: 600;
+  width: 100%;
+}
+
+.form-input {
+  margin-top: 7px;
+  background: white;
+  padding: 11px;
+  border-radius: 10px;
+  border: 0;
+  outline: 0;
+  display: flex;
+}
+
+.team-check {
+  display: none;
+}
+
+.team-check:checked~[data="name"] {
+  color: #56a5b4;
+}
+
+
+.pure-table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  empty-cells: show;
+  border: 1px solid #cbcbcb;
+  white-space: pre;
+  width: 100%;
+}
+
+.pure-table caption {
+  color: #000;
+  font: italic 85%/1 arial, sans-serif;
+  padding: 1em 0;
+  text-align: center
+}
+
+.pure-table td,
+.pure-table th {
+  border-left: 1px solid #cbcbcb;
+  border-width: 0 0 0 1px;
+  font-size: inherit;
+  margin: 0;
+  overflow: visible;
+  padding: .5em 1em
+}
+
+.pure-table thead {
+  background-color: #e0e0e0;
+  color: #000;
+  text-align: left;
+  vertical-align: bottom
+}
+
+.pure-table td {
+  background-color: transparent
+}
+
+.pure-table-odd td {
+  background-color: #f2f2f2
+}
+
+.pure-table-striped tr:nth-child(2n-1) td {
+  background-color: #f2f2f2
+}
+
+.pure-table-bordered td {
+  border-bottom: 1px solid #cbcbcb
+}
+
+.pure-table-bordered tbody>tr:last-child>td {
+  border-bottom-width: 0
+}
+
+.pure-table-horizontal td,
+.pure-table-horizontal th {
+  border-width: 0 0 1px 0;
+  border-bottom: 1px solid #cbcbcb
+}
+
+.pure-table-horizontal tbody>tr:last-child>td {
+  border-bottom-width: 0
+}
+
+.modal {
+  position: fixed;
+  top: 0rem;
+  justify-content: center;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  z-index: 2000;
+}
+
+.hidden-body {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #00000061;
+  z-index: 1000;
+}
+
+.box-modal {
+  background: #fff;
+  position: fixed;
+  top: 62px;
+  z-index: 90;
+  border-radius: 7px;
+  display: flex;
+  padding: 20px;
+}
+
+.form-modal {
+  position: relative;
+}
+
+.form-modal fieldset {
+  border: 2px solid #56a5b4;
+  border-radius: 7px;
+  padding: 17px;
+}
+
+.form-auth {
+  border: none;
+  outline: 0;
+  border-radius: 5px;
+  background: #efefef;
+  height: 33px;
+  padding: 0 15px;
+  margin-left: 11px;
+  width: 12rem;
+}
+
+.btn-auth {
+  width: 100%;
+  background: #56a5b4;
+  height: 2.4rem;
+  margin-top: 12px;
+  border-radius: 4px;
+  border: none;
+  color: white;
+  font-weight: 600;
+}
+
+.close-modal {
+  color: red;
+  font-size: 30px;
+  position: absolute;
+  top: -31px;
+  right: -29px;
+}
+
+.text-info {
+  color: white;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm {
+  background-color: #56a5b4 !important;
+  box-shadow: none !important;
+}
+
+@media(max-width:700px) {
+  #app {
+    height: 100vh;
+    width: 100%;
+  }
+}

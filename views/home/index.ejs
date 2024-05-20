@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>MINI GAME - CÁ CƯỢC BÓNG ĐÁ AI - BY TUNGMMO</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel='stylesheet' type='text/css' href='/assets/css/styles.min.css'>
+</head>
+
+<body>
+  <div class="header">
+    <div id="app">
+      <nav class="navbar">
+        <div class="top-sidenav">
+          <div class="top-nav">
+          </div>
+          <a href="/" class="user-header">
+            <i class="fa-light fa-futbol"></i>
+          </a>
+        </div>
+        <div class="center-nav"></div>
+        <div class="end-nav">
+          <% if(!users) {%>
+          <button class="btn-1" data-toggle="modal" id="login">ĐĂNG NHẬP</button>
+          <% }else{%>
+          <span class="text-info"><%=users.username;%> (<font color="yellow"><%=Number(users.money).toLocaleString('it-IT', {style : 'currency' , currency : 'VND' }).replace('VND', 'đ')%></font>)</span>
+          <% }%>
+
+        </div>
+      </nav>
+      <div class="content">
+        <div class="main">
+          <div class="title-home">
+            TRỰC TIẾP
+          </div>
+          <div class="card mt-x">
+            <div class="box-game">
+              <div class="content-game" type="group">
+                <div class="team-name2" id="time">
+                  1:00:59
+                </div>
+              </div>
+              <div class="content-game2">
+                <% if(users) {%>
+                <p>SỐ DƯ CŨ: <font color="yellow"><%=Number(users.moneycu).toLocaleString('it-IT', {style : 'currency' , currency : 'VND' }).replace('VND', 'đ')%></font>
+                </p>
+                <p>SỐ DƯ HIỆN TẠI: <font color="yellow"><%=Number(users.money).toLocaleString('it-IT', {style : 'currency' , currency : 'VND' }).replace('VND', 'đ')%></font>
+                </p>
+                <p>TIỀN THẮNG: +<font color="yellow"><%=Number(users.win).toLocaleString('it-IT', {style : 'currency' , currency : 'VND' }).replace('VND', 'đ')%></font>
+                </p>
+                <% }else{%>
+                <p>SỐ DƯ CŨ: <font color="yellow">Chưa đăng nhập</font>
+                </p>
+                <p>SỐ DƯ HIỆN TẠI: <font color="yellow">Chưa đăng nhập</font>
+                  </font>
+                </p>
+                <p>TIỀN THẮNG: <font color="yellow">Chưa đăng nhập</font>
+                </p>
+                <% }%>
+
+              </div>
+            </div>
+            <img src="/assets/img/img1.png" width="134px" style="transform: scaleX(-1.3);" />
+
+          </div>
+          <div class="mt-x title-home">
+            ĐẶT CƯỢC
+          </div>
+          <div class="card2 mt-x">
+            <img src="/assets/img/img2.png" width="134px" />
+            <form class="box-game" method="POST" action="/api/cuoc" id="datcuoc">
+              <div class="content-game" type="group">
+                <div class="team-name">
+                  <input type="radio" value="1" class="team-check" id="doiA" name="team" checked />
+                  <label data="name" for="doiA" type="button">ĐỘI A</label>
+                  <span class="mt-x2 badges-x" id="teamA">
+                    0
+                  </span>
+                </div>
+                <div class="team-name">
+                  <input type="radio" value="2" class="team-check" id="doiB" name="team" />
+                  <label data="name" for="doiB" type="button">ĐỘI B</label>
+                  <span class="mt-x2 badges-x" id="teamB">
+                    0
+                  </span>
+                </div>
+              </div>
+              <div class="content-game2">
+                <input type="number" value="" name="quantity" id="quantity" class="form-input" placeholder="Nhập số tiền cược">
+                <div class="layouts-cuoc mt-x2">
+                  <button class="btn-2" type="submit">ĐẶT CƯỢC</button>
+                  <button class="btn-3" id="huybo" type="button">HỦY BỎ</button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="mt-x title-home">
+            BXH
+          </div>
+
+          <div class="mt-x bxh_layout">
+            <table class="pure-table pure-table-bordered">
+              <thead>
+                <tr>
+                  <th>Rank</th>
+                  <th>Người chơi</th>
+                  <th>Tiền thắng</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% topUsers.forEach(function(user, index) { %>
+                <% if(Number(user.win) > 0) { %>
+                <tr>
+                  <td><%= index + 1 %></td>
+                  <td><%= user.username %></td>
+                  <td><%=Number(user.win).toLocaleString('it-IT', {style : 'currency' , currency : 'VND' }).replace('VND', 'đ')%></td>
+                </tr>
+                <% } %>
+                <% }) %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" modal-data="login" style="display:none">
+    <div class="box-modal">
+      <form class="form-modal" method="POST" action="/api/auth" id="form-auth">
+        <fieldset>
+          <legend>Đăng nhập</legend>
+          <table>
+            <tr>
+              <td>Username</td>
+              <td><input type="text" name="username" class="form-auth"></td>
+            </tr>
+            <tr>
+              <td>Password</td>
+              <td><input type="password" name="password" class="form-auth"></td>
+            </tr>
+            <tr>
+              <td colspan="2" align="center"> <input type="submit" class="btn-auth" name="btn_submit" value="Đăng nhập / Đăng ký"></td>
+            </tr>
+          </table>
+        </fieldset>
+        <span type="button" class="close-modal">
+          <i class="fa-solid fa-circle-xmark"></i>
+        </span>
+      </form>
+    </div>
+  </div>
+  <div class="hidden-body" style="display:none">
+
+  </div>
+  <!-- Thêm script Socket.IO vào trang HTML -->
+  <script src="/socket.io/socket.io.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+  <script src="/assets/js/ajaxForm.js"></script>
+  <script src="/assets/js/app.min.js"></script>
+
+</body>
+
+</html>
